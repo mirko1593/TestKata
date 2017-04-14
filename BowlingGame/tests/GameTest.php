@@ -19,14 +19,6 @@ class GameTest extends PHPUnit\Framework\TestCase
     }    
 
     /** @test */
-    public function it_can_roll()
-    {
-        $this->game->roll(0);
-
-        $this->assertTrue(true);
-    }
-
-    /** @test */
     public function it_plays_a_gutter_game()
     {
         $this->rollMany(20, 0);
