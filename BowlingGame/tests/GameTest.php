@@ -34,6 +34,17 @@ class GameTest extends PHPUnit\Framework\TestCase
         $this->assertSame(20, $this->game->score());
     }
 
+    /** @test */
+    public function it_rolls_one_spare_and_remains_is_a_gutter_game()
+    {
+        $this->game->roll(5);
+        $this->game->roll(5);
+        $this->game->roll(3);
+        $this->rollMany(17, 0);
+
+        $this->assertSame(16, $this->game->score());
+    }
+
     protected function rollMany($count, $pins)
     {
         foreach (range(0, $count - 1) as $i) {
