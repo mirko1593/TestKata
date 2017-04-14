@@ -55,6 +55,14 @@ class GameTest extends PHPUnit\Framework\TestCase
         $this->assertSame(14, $this->game->score());
     }
 
+    /** @test */
+    public function it_rolls_a_perfect_game()
+    {
+        $this->rollMany(12, 10);
+
+        $this->assertSame(300, $this->game->score());
+    }
+
     protected function rollMany($count, $pins)
     {
         foreach (range(0, $count - 1) as $i) {
