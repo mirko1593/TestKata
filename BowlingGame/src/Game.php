@@ -15,13 +15,21 @@ class Game
     public function score()
     {
         $score = 0;
-        for ($i = 0; $i < 20; $i++) {
-            if ($i % 2 === 0 && $this->rolls[$i] + $this->rolls[$i+1] == 10) {
-                $score += $this->rolls[$i + 2];
+        $firstInFrame = 0;
+        for ($frame = 0; $frame < 10; $frame++) {
+            $score += $this->rolls[$firstInFrame] + $this->rolls[$firstInFrame + 1];
+
+            if ($this->isSpare($firstInFrame)) {
+                $score += $this->rolls[$firstInFrame + 2];
             }
-            $score += $this->rolls[$i];
+            $firstInFrame += 2;
         }
 
         return $score;
+    }
+
+    protected function isSpare($firstInFrame)
+    {
+        return $this->rolls[$firstInFrame] + $this->rolls[$firstInFrame+1] == 10;
     }
 }

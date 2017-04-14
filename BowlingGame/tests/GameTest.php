@@ -37,8 +37,7 @@ class GameTest extends PHPUnit\Framework\TestCase
     /** @test */
     public function it_rolls_one_spare_and_remains_is_a_gutter_game()
     {
-        $this->game->roll(5);
-        $this->game->roll(5);
+        $this->rollSpare();
         $this->game->roll(3);
         $this->rollMany(17, 0);
 
@@ -50,5 +49,11 @@ class GameTest extends PHPUnit\Framework\TestCase
         foreach (range(0, $count - 1) as $i) {
             $this->game->roll($pins);
         }
+    }
+
+    protected function rollSpare()
+    {
+        $this->game->roll(5);
+        $this->game->roll(5);
     }
 }
