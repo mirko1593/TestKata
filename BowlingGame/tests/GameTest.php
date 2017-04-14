@@ -29,9 +29,7 @@ class GameTest extends PHPUnit\Framework\TestCase
     /** @test */
     public function it_plays_a_gutter_game()
     {
-        foreach (range(0, 19) as $i) {
-            $this->game->roll(0);
-        }
+        $this->rollMany(20, 0);
 
         $this->assertSame(0, $this->game->score());
     }
@@ -39,10 +37,15 @@ class GameTest extends PHPUnit\Framework\TestCase
     /** @test */
     public function it_rolls_all_1s()
     {
-        foreach (range(0, 19) as $i) {
-            $this->game->roll(1);
-        }  
+        $this->rollMany(20, 1);
 
         $this->assertSame(20, $this->game->score());
+    }
+
+    protected function rollMany($count, $pins)
+    {
+        foreach (range(0, $count - 1) as $i) {
+            $this->game->roll($pins);
+        }
     }
 }
