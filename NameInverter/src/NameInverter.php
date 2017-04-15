@@ -8,8 +8,13 @@ class NameInverter
     {
         if (sizeof($name) <= 0 || $name === null) {
             return '';
-        }
+        } else {
+            $names = explode(' ', $name);
+            if (sizeof($names) === 2) {
+                return sprintf('%s, %s', $names[1], $names[0]);
+            }
 
-        return $name;
+            return $name;
+        }
     }
 }

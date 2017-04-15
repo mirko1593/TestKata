@@ -28,6 +28,12 @@ class NameInverterTest extends PHPUnit\Framework\TestCase
         $this->assertInvertedName('name', 'name');
     }
 
+    /** @test */
+    public function given_first_last_returns_last_comma_first()
+    {
+        $this->assertInvertedName('Last, First', 'First Last');
+    }
+
     protected function assertInvertedName($inverted, $original)
     {
         $this->assertEquals($inverted, $this->nameInverter->invert($original));
