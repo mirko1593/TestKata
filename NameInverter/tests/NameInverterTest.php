@@ -22,6 +22,12 @@ class NameInverterTest extends PHPUnit\Framework\TestCase
         $this->assertInvertedName('', '');
     }
 
+    /** @test */
+    public function given_simple_name_returns_simple_name()
+    {
+        $this->assertInvertedName('name', 'name');
+    }
+
     protected function assertInvertedName($inverted, $original)
     {
         $this->assertEquals($inverted, $this->nameInverter->invert($original));
