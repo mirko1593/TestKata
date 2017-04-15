@@ -54,6 +54,12 @@ class NameInverterTest extends PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function integration()
+    {
+        $this->assertInvertedName('King, Mirko Dr.', '   Mirko King Dr.    ');
+    }
+
+    /** @test */
     public function given_first_last_post_nominals_returns_last_first_post_nominals()
     {
         $this->assertInvertedName('Last, First Dr.', 'First Last Dr.');
