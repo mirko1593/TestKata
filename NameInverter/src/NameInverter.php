@@ -10,11 +10,12 @@ class NameInverter
             return '';
         } else {
             $names = explode(' ', $name);
-            if (sizeof($names) === 2) {
-                return sprintf('%s, %s', $names[1], $names[0]);
+
+            if (sizeof($names) === 1) {
+                return $name;
             }
 
-            return $name;
+            return sprintf('%s, %s', $names[1], $names[0]);
         }
     }
 }
