@@ -13,14 +13,19 @@ class NameInverter
 
             if (sizeof($names) === 1) {
                 return $names[0];
-            } else if ($this->isHonorific($names[0])) {
-                array_shift($names);
-            }
-            if (sizeof($names) > 2) {
+            } else {
+                $this->removeHonorific($names);
                 $postNominal = $this->getPostNominals($names);
-                return sprintf('%s, %s %s', $names[1], $names[0], $postNominal);
+
+                return $this->formatName($names, $postNominal);
             }
-            return sprintf('%s, %s', $names[1], $names[0]);
+        }
+    }
+
+    protected function removeHonorific(&$names)
+    {
+        if ($this->isHonorific($names[0])) {
+            array_shift($names);
         }
     }
 
@@ -32,5 +37,10 @@ class NameInverter
     protected function getPostNominals($names)
     {
         return implode(' ', array_slice($names, 2));
+    }
+
+    protected function formatName($names, $postNominal)
+    {
+        return trim(sprintf('%s, %s %s', $names[1], $names[0], $postNominal));
     }
 }
