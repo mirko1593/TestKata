@@ -9,8 +9,15 @@ class PrimeFactor
         $factors = [];
 
         if ($number > 1) {
-            $factors[] = $number;
+            if ($number % 2 === 0) {
+                $factors[] = 2;
+                $number /= 2;
+            }
         }
+        
+        if ($number > 1) {
+            $factors[] = $number;
+        } 
 
         return $factors;
     }

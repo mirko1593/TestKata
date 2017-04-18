@@ -22,6 +22,13 @@ class PrimeFactorTest extends PHPUnit\Framework\TestCase
         $this->assertFactorOf([2], 2);
     }
 
+    /** @test */
+    public function factor_of_number_greater_than_2()
+    {
+        $this->assertFactorOf([3], 3);
+        $this->assertFactorOf([2, 2], 4);
+    }
+
     protected function assertFactorOf($factors, $number)
     {
         $this->assertEquals($factors, $this->factor->of($number));
