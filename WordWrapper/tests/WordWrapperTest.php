@@ -1,0 +1,38 @@
+<?php 
+
+use Wrapper\WordWrapper;
+
+class WordWrapperTest extends PHPUnit\Framework\TestCase
+{
+    public function setUp()
+    {
+        parent::setUp();
+        $this->wrapper = new WordWrapper;
+    }
+
+    /** @test */
+    public function degenerate_test_for_null_or_empty_string()
+    {
+        $this->assertWrappedWords("", [null, 1]);
+        $this->assertWrappedWords("", ["", 1]);
+    }
+
+    /** @test */
+    public function wrap_words_needless_to_break_line()
+    {
+        $this->assertWrappedWords("x", ["x", 1]);
+    }
+
+    /** @test */
+    public function wrap_words_need_to_break_line()
+    {
+        $this->assertWrappedWords("x\nx", ["xx", 1]);
+        // $this->assertWrappedWords("x\nx\nx", ["xxx", 1]);
+    }
+
+    public function assertWrappedWords($expected, $original)
+    {
+        $this->assertSame($expected, call_user_func_array([$this->wrapper, 'wrap'], $original));
+    }
+
+}
