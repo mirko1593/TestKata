@@ -27,6 +27,10 @@ class PrimeFactorTest extends PHPUnit\Framework\TestCase
     {
         $this->assertFactorOf([3], 3);
         $this->assertFactorOf([2, 2], 4);
+        $this->assertFactorOf([5], 5);
+        $this->assertFactorOf([2, 3], 6);
+        $this->assertFactorOf([7], 7);
+        $this->assertFactorOf([2, 2, 2], 8);
     }
 
     protected function assertFactorOf($factors, $number)
