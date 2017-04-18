@@ -31,6 +31,11 @@ class WordWrapperTest extends PHPUnit\Framework\TestCase
         $this->assertWrappedWords("x\nx", ["x x", 1]);
     }
 
+    /** @test */
+    public function wrap_words_need_to_be_break_in_last_space_shorter_than_length()
+    {
+        $this->assertWrappedWords("x\nxx", ["x xx", 3]);
+    }
 
     public function assertWrappedWords($expected, $original)
     {
