@@ -35,6 +35,12 @@ class PrimeFactorTest extends PHPUnit\Framework\TestCase
         $this->assertFactorOf([3, 3, 3], 27);
     }
 
+    /** @test */
+    public function integrate_test_for_a_random_number()
+    {
+        $this->assertFactorOf([2, 3, 5, 7, 11], 2310);   
+    }
+
     protected function assertFactorOf($factors, $number)
     {
         $this->assertEquals($factors, $this->factor->of($number));
