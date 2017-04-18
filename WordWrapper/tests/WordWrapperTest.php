@@ -37,6 +37,15 @@ class WordWrapperTest extends PHPUnit\Framework\TestCase
         $this->assertWrappedWords("x\nxx", ["x xx", 3]);
     }
 
+    /** @test */
+    public function integration_test_for_random_words()
+    {
+        $this->assertWrappedWords(
+            "four\nscore\nand\nseven\nyears\nago our\nfathers\nbrought\nforth\nupon\nthis\ncontine\nnt", 
+            ["four score and seven years ago our fathers brought forth upon this continent", 7]
+        );
+    }   
+
     public function assertWrappedWords($expected, $original)
     {
         $this->assertSame($expected, call_user_func_array([$this->wrapper, 'wrap'], $original));
