@@ -6,9 +6,12 @@ class PrimeFactor
 {
     public function of($number)
     {
-        if ($number < 2) {
-            return [];
+        $factors = [];
+
+        if ($number > 1) {
+            $factors[] = $number;
         }
-        return [$number];
+
+        return $factors;
     }
 }
