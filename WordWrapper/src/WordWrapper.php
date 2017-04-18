@@ -9,7 +9,7 @@ class WordWrapper
         if (strlen($words) <= $length) {
             return $words ?? "";
         } else {
-            return substr($words, 0, $length) . "\n" . substr($words, $length);
+            return substr($words, 0, $length) . "\n" . $this->wrap(trim(substr($words, $length)), $length);
         }
     }
 }

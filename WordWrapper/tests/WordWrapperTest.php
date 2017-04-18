@@ -27,8 +27,10 @@ class WordWrapperTest extends PHPUnit\Framework\TestCase
     public function wrap_words_need_to_break_line()
     {
         $this->assertWrappedWords("x\nx", ["xx", 1]);
-        // $this->assertWrappedWords("x\nx\nx", ["xxx", 1]);
+        $this->assertWrappedWords("x\nx\nx", ["xxx", 1]);
+        $this->assertWrappedWords("x\nx", ["x x", 1]);
     }
+
 
     public function assertWrappedWords($expected, $original)
     {
