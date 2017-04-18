@@ -7,20 +7,12 @@ class PrimeFactor
     public function of($number)
     {
         $factors = [];
-        $division = 2;
 
-        while ($number > 1) {
-            while ($number % $division == 0) {
+        for ($division = 2; $number > 1; $division++) {
+            for (; $number % $division == 0; $number /= $division) {
                 $factors[] = $division;
-                $number /= $division;
             }
-
-            $division++;
         }
-
-        if ($number > 1) {
-            $factors[] = $number;
-        } 
 
         return $factors;
     }
