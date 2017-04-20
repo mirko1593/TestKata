@@ -11,21 +11,21 @@ class QuickSort
             return $sortedElems;
         } else {
             $middle = $elems[0];
-            $high = null;
-            $low = null;
+            $high = [];
+            $low = [];
 
             foreach ($elems as $e) {
                 if ($e < $middle) {
-                    $low = $e;
+                    $low[] = $e;
                 }
                 if ($e > $middle) {
-                    $high = $e;
+                    $high[] = $e;
                 }
             }
 
-            if ($low) $sortedElems[] = $low;
-            if ($middle) $sortedElems[] = $middle;
-            if ($high) $sortedElems[] = $high;
+            $sortedElems = array_merge($this->sort($low), $sortedElems);
+            $sortedElems[] = $middle;
+            $sortedElems = array_merge($sortedElems, $this->sort($high));
         }
 
         return $sortedElems;
