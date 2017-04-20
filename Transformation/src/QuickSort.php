@@ -14,11 +14,11 @@ class QuickSort
             $high = [];
             $low = [];
 
+            array_shift($elems);
             foreach ($elems as $e) {
                 if ($e < $middle) {
                     $low[] = $e;
-                }
-                if ($e > $middle) {
+                } else {
                     $high[] = $e;
                 }
             }
