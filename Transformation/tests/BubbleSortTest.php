@@ -21,6 +21,7 @@ class BubbleSortTest extends PHPUnit\Framework\TestCase
     public function it_sorts_elems()
     {
         $this->assertSorted([1], [1]);
+        $this->assertSorted([1, 2], [2, 1]);
     }
 
     protected function assertSorted($expected, $input)
