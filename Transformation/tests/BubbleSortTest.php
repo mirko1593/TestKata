@@ -13,14 +13,15 @@ class BubbleSortTest extends PHPUnit\Framework\TestCase
     /** @test */
     public function nothing()
     {
+        $this->assertSorted([], null);
         $this->assertSorted([], []);
     }    
 
-    // /** @test */
-    // public function it_sorts_elems()
-    // {
-    //     $this->assertSorted([1], [1]);
-    // }
+    /** @test */
+    public function it_sorts_elems()
+    {
+        $this->assertSorted([1], [1]);
+    }
 
     protected function assertSorted($expected, $input)
     {

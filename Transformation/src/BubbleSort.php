@@ -6,6 +6,6 @@ class BubbleSort
 {
     public function sort($elems)
     {
-        return [];
+        return $elems ?? [];
     }
 }
