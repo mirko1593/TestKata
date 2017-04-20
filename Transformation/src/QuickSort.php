@@ -6,6 +6,6 @@ class QuickSort
 {
     public function sort($elems)
     {
-        return [];
+        return $elems ?? [];
     }
 }
