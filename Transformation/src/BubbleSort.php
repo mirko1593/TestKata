@@ -6,9 +6,11 @@ class BubbleSort
 {
     public function sort($elems)
     {
-        for ($index = 0; sizeof($elems) > $index + 1; $index++) {
-            if ($elems[$index] > $elems[$index + 1]) {
-                $this->swapElems($elems, $index);
+        for ($size = sizeof($elems); $size > 0; $size--){
+            for ($index = 0; $size > $index + 1; $index++) {
+                if ($elems[$index] > $elems[$index + 1]) {
+                    $this->swapElems($elems, $index);
+                }
             }
         }
 
