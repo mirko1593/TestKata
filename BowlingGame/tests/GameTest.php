@@ -40,6 +40,7 @@ class GameTest extends PHPUnit\Framework\TestCase
         $this->rollSpare();
         $this->game->roll(3);
         $this->rollMany(17, 0);
+        # this is a blank line.
 
         $this->assertSame(16, $this->game->score());
     }
